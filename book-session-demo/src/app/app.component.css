@@ -1,0 +1,141 @@
+.container {
+    margin-top: 48px;
+}
+/* profile info*/
+.profile__picture {
+    background: #F8F8F8 url("../assets/avatar.png") no-repeat center;
+    background-size: 75%;
+    width: 135px;
+    height: 135px;
+    border-radius: 50%;
+}
+.profile__info {
+    margin-left: 10px;
+}
+.profile__info h6 {
+    font-weight: 700;
+}
+.info__job {
+    line-height: 1;
+}
+.info__specialty {
+    color: #007bff;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.info__location {
+    font-size: 13px;
+}
+.reviews__stars {
+    color: #ffdb80;
+}
+.reviews__stars:last-of-type {
+    margin-right: 4px;
+}
+.profile__session-info {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 2;
+}
+.profile__session-info span:first-of-type{
+    font-size: 15px;
+}
+.profile__description {
+    margin-top: 16px;
+}
+/* calendar */
+.calendar-header {
+    color: #ffffff;
+    background-color: #007bff;
+    padding: 8px;
+}
+.calendar-header p {
+    margin-bottom: 0;
+    letter-spacing: 0.5;
+}
+.calendar-header h6 {
+    font-weight: 700;
+    margin-bottom: 0;
+}
+.btn {
+    width: 100%;
+    font-size: 0.85em;
+}
+.btn-primary,
+.btn-secondary {
+    font-size: inherit;
+    font-weight: 700;
+    color: inherit;
+    background-color: #E8E8E8;
+    border: 0;
+    border-radius: 0;
+    margin: 2px 0;
+}
+.modal-slots .btn-primary,
+.slots .btn-primary,
+.slots__month-day {
+    font-size: 0.85em;
+}
+.btn-secondary {
+    background-color: #ffffff;
+}
+.btn-primary:hover,
+.btn-primary:not(:disabled):not(.disabled):active {
+    color: inherit;
+    background: #F5F5F5;
+}
+.btn-secondary:hover {
+    background-color: #ffffff;
+    color: inherit;
+}
+.days-nav {
+    margin: 0;
+    justify-content: space-between;
+    padding: 8px 0;
+}
+.days-nav:first-of-type .col{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.days-nav:last-of-type {
+  margin-top: 15px;
+}
+.days-nav:last-of-type .col .empty-space {
+    width: 1.28em;
+}
+.days-nav .col-md-2 {
+    padding: 0;
+}
+.days-nav .slots.today .btn-primary {
+    background-color: transparent;
+    cursor: context-menu;
+}
+.days-nav .btn-nav {
+    font-size: 1.28em;
+}
+.days-nav .btn-nav.disabled {
+    color: #A9A9A9;
+}
+.slots__week-day, .slots__month-day {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.slots__week-day {
+    font-size: 0.71em;
+}
+.slot-scheduled {
+  background-color:#BCED91;
+}
+.slot-scheduled:hover {
+    background-color:#d7f4bd;
+  }
+.modal-dialog {
+    max-width: 300px;
+    margin-top: 8rem;
+}
+.modal-content, .modal-header {
+    border: 0;
+}

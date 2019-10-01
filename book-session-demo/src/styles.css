@@ -1,0 +1,17 @@
+@font-face {
+  font-family: SourceSansPro;
+  src: url(assets/font/SourceSansPro-Regular.ttf) format("opentype");
+}
+body {
+  font-family: SourceSansPro;
+  font-size: 14px;
+  color: #666666;
+  letter-spacing: 0.5px;
+}
+.shadow {
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.12);
+  -ms-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.12);
+  -o-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.12);
+}

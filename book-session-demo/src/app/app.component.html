@@ -1,0 +1,100 @@
+<div class="container" *ngIf="!!data">
+    <div class="row">
+       <div class="col-7">
+          <div class="profile d-flex">
+             <div class="profile__picture"></div>
+             <div class="profile__info">
+                <h6>{{ data.name }}</h6>
+                <div class="info__job">
+                  <span class="info__specialty">{{ data.specialty }}</span> | <span class="info__location">{{ data.city }}</span>
+                </div>
+                <div class="profile__reviews">
+                  <fa-icon [icon]="faStar" class="reviews__stars" *ngFor="let review of avReviews"></fa-icon>
+                  <span>({{avReviews.length}} reviews)</span>
+                </div>
+                <div class="profile__session-info">
+                   <span>R${{ data.appointment?.charge }}</span> / <span>{{ data.appointment?.duration }} minutes</span>
+                  </div>
+             </div>
+          </div>
+          <div class="profile__description">{{ data.description }}</div>
+       </div>
+       <div class="col col-5">
+            <div class="calendar-header text-center">
+               <h6>Schedule your session!</h6>
+               <p>Timezone: {{data.city}} (+1)</p>
+            </div>
+          <div class="calendar-slots">
+             <div class="days-nav row shadow">
+                <div class="col col-md-auto">
+                   <fa-icon [icon]="faChevronCircleLeft"
+                   class="btn-nav"
+                   (click)="previousDay()"
+                   [ngClass]="{'disabled': calendarStart}"></fa-icon>
+                </div>
+                <div class="col col-md-2 slots" *ngFor="let day of days" [ngClass]="{'today': isToday(day.day)}">
+                <div class="slots__week-day">{{day.day?.format('ddd')}}</div>
+                <div class="slots__month-day">{{day.day?.format('MMM DD')}}</div>
+             </div>
+             <div class="col col-md-auto">
+                <fa-icon [icon]="faChevronCircleRight"
+                class="btn-nav"
+                (click)="nextDay()"></fa-icon>
+             </div>
+          </div>
+          <div class="days-nav row shadow">
+             <div class="col col-md-auto">
+                <div class="empty-space"></div>
+             </div>
+             <div class="col-md-2 slots" *ngFor="let day of days" [ngClass]="{'today': isToday(day.day)}">
+             <div *ngFor="let slot of day.timeslots; let i=index">
+                <div class="btn btn-primary"
+                [ngClass]="{'slot-scheduled': slot.scheduled}"
+                *ngIf="i<slotsToShow"
+                (click)="selectSlot(slot, day, template)">{{slot.time}}
+             </div>
+          </div>
+          <div class="btn btn-primary" *ngIf="!isToday(day.day);else disabledSlot"
+          (click)="showMoreSlots(day, moreSlots)">MORE</div>
+          <ng-template #disabledSlot>
+             <div class="btn btn-primary">-</div>
+         </ng-template>
+    </div>
+    <div class="col col-md-auto">
+       <div class="empty-space"></div>
+    </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <ng-template #template>
+    <div class="modal-header confirm">
+       <h4 class="modal-title pull-left">Are you sure you want to schedule at {{ selectedTime }} ?</h4>
+       <button type="button" class="close pull-right" aria-label="Close" (click)="selectedTime=null; modalRefConfirm.hide()">
+       <span aria-hidden="true">&times;</span>
+       </button>
+    </div>
+    <div class="modal-body">
+       <div class="btn btn-secondary" (click)="selectedTime=null; modalRefConfirm.hide()">No</div>
+       <div class="btn btn-primary" (click)="scheduleTime(); modalRefConfirm.hide()">Yes</div>
+    </div>
+ </ng-template>
+ <ng-template #moreSlots>
+    <div class="modal-header confirm">
+       <h4 class="modal-title pull-left">{{modalDay.day.format('ll')}}</h4>
+       <button type="button" class="close pull-right" aria-label="Close" (click)="modalRefSlots.hide()">
+       <span aria-hidden="true">&times;</span>
+       </button>
+    </div>
+    <div class="modal-body modal-slots">
+       <div class="row">
+          <div class="col-md-4" *ngFor="let slot of modalDay.timeslots">
+             <div class="btn btn-primary"
+             [ngClass]="{'slot-scheduled': slot.scheduled}"
+             (click)="selectSlot(slot, modalDay, template); modalRefSlots.hide()">{{slot.time}}
+          </div>
+       </div>
+    </div>
+    </div>
+ </ng-template>
