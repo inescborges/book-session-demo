@@ -24,7 +24,8 @@
     font-weight: 700;
     text-transform: uppercase;
 }
-.info__location {
+.info__location,
+.profile__reviews span {
     font-size: 13px;
 }
 .reviews__stars {
