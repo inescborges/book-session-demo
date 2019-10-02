@@ -7,7 +7,7 @@ To run the project you must have installed:
 Node.js and npm ( https://www.npmjs.com/get-npm )\
 Angular CLI ( https://cli.angular.io/ )
 
-If you have those dependencies just open your command line in the project folder and write:\
+If you have those dependencies just open your command line in the project folder and write:
 
 npm install\
 npm run development
