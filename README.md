@@ -2,7 +2,7 @@
 
 An Angular component with a calendar for scheduling sessions for a chosen professional.\
 Made with Angular version 8.3.5\
-To run you must have installed:
+To run the project you must have installed:
 
 Node.js and npm ( https://www.npmjs.com/get-npm )\
 Angular CLI ( https://cli.angular.io/ )
