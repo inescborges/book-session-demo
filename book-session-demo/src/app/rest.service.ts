@@ -18,13 +18,11 @@ export class RestService {
         return res;
     }
     updateData(id, day, hour) {
-        console.log("SERVICE", this.data);
         this.dataRequest = {
             day: day,
             hour: hour
         }
         this.data.busySlots.push(this.dataRequest);
-        console.log("SERVICE", this.data.busySlots);
         return this.http.patch(`${this.url}/data/${id}`, {"busySlots" : this.data.busySlots});
     }
 }
