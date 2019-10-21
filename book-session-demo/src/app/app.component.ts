@@ -40,12 +40,10 @@ export class AppComponent implements OnInit {
   private fetchData(){
     const promise = this.dataService.getData();
     promise.then((data)=>{
-      console.log("Promise resolved");
       this.data = data;
       this.avReviews = this.calcAverageValue(this.data.reviews);
       this.days = this.createCalendar(this.date);
     }).catch((error)=>{
-      console.log("Promise rejected with " + JSON.stringify(error));
     });
   }
 
@@ -166,12 +164,10 @@ export class AppComponent implements OnInit {
     let timeIndex = this.modalDay.timeslots.findIndex(e => e.time === this.selectedTime);
     if (!!this.selectedTime) {
       this.dataService.updateData(this.data.id, moment(this.modalDay.day).format('l'), this.selectedTime).subscribe(res => {   
-        console.log("Request successful ");
         this.days[dayIndex].timeslots[timeIndex].scheduled = true;
         this.selectedTime = '';
         }, 
         error  => {
-        console.log("Error", error);
         }
         );
     }
